@@ -21,17 +21,19 @@ services:
 
   - hostname: api
     type: nodejs@16
+    buildFromGit: https://github.com/zeropsio/recipe-strapi-api
+    enableSubdomainAccess: true
     envVariables:
       ADMIN_JWT_SECRET: 1tUoMgit3aFh41KfDXUmnw==
+      JWT_SECRET: pL3JDJtTg/7qsQ9BiuJzJQ==
       API_TOKEN_SALT: NSrsf0VO1mZzh21JWEB4fg==
       APP_KEYS: G7lIC0XJ5gQvuF5Rx3jULg==,RmKy61asV1fS/m8t8RX37Q==,525oWc3F7n6KuvCX3NhOvg==,i3GE/1RDvNaR+IpXHwoeeg==
-      DATABASE_PASSWORD: ${db_password}
-      JWT_SECRET: pL3JDJtTg/7qsQ9BiuJzJQ==
       NODE_ENV: production
+      DATABASE_PASSWORD: ${db_password}
       S3_ACCESS_KEY_ID: ${storage_accessKeyId}
       S3_ACCESS_SECRET: ${storage_secretAccessKey}
-      S3_BUCKET_NAME: kaiserstorage
       S3_ENDPOINT_URL: ${storage_apiUrl}
+      S3_BUCKET_NAME: ${storage_serviceId|lower}.storage
     ports:
       - port: 1337
         httpSupport: true
