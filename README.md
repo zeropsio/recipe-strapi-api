@@ -29,6 +29,7 @@ services:
       API_TOKEN_SALT: NSrsf0VO1mZzh21JWEB4fg==
       APP_KEYS: G7lIC0XJ5gQvuF5Rx3jULg==,RmKy61asV1fS/m8t8RX37Q==,525oWc3F7n6KuvCX3NhOvg==,i3GE/1RDvNaR+IpXHwoeeg==
       NODE_ENV: production
+      HOME: "/"
       DATABASE_PASSWORD: ${db_password}
       S3_ACCESS_KEY_ID: ${storage_accessKeyId}
       S3_ACCESS_SECRET: ${storage_secretAccessKey}
@@ -39,7 +40,7 @@ services:
         httpSupport: true
     verticalAutoscaling:
       minCpu: 1
-      maxCpu: 1
+      maxCpu: 10
       minRam: 0.5
       maxRam: 0.5
     minContainers: 2
