@@ -8,5 +8,5 @@ api:
     cache: [ node_modules ]
   run:
     init:
-      - zcli bucket s3 create storage "${storage_serviceId}.storage" --x-amz-acl=public-read || exit 0
+      - zcli bucket s3 create storage storage --x-amz-acl=public-read || exit 0
     start: yarn start
