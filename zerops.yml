@@ -1,0 +1,10 @@
+api:
+  build:
+    base: [ nodejs@16 ]
+    build:
+      - yarn
+      - yarn build
+    deploy: [ ./ ]
+    cache: [ node_modules ]
+  run:
+    start: yarn start
